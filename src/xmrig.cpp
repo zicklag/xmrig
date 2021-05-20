@@ -26,8 +26,8 @@
 #include "base/kernel/Entry.h"
 #include "base/kernel/Process.h"
 
-
-int main(int argc, char **argv) {
+extern "C" int xmrig_main(int argc, char **argv)
+{
     using namespace xmrig;
 
     Process process(argc, argv);
