@@ -27,10 +27,10 @@
 #include "base/kernel/Process.h"
 
 
-extern "C" int xmrig_start() {
+extern "C" int xmrig_start(int argc, char **argv) {
     using namespace xmrig;
 
-    Process process(0, nullptr);
+    Process process(argc, argv);
     const Entry::Id entry = Entry::get(process);
     if (entry) {
         return Entry::exec(process, entry);
@@ -38,5 +38,5 @@ extern "C" int xmrig_start() {
 
     App app(&process);
 
-    app.exec();
+    return app.exec();
 }
